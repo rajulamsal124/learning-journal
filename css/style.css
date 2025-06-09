@@ -1,0 +1,291 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: block;
+    margin: 0 auto;
+    font-family: "Source Sans 3", sans-serif;
+    line-height: 1.25;
+    color: #090909;
+    background-color: #FFFFFF;
+    max-width: 1200px;
+}
+
+main {
+    background-color: #FAFAFA;
+}
+
+ul {
+    list-style: none;
+}
+
+.nav__link {
+    text-decoration: none;
+}
+
+.nav__item {
+    margin-right: 1em;
+}
+
+/* Typography */
+
+.site-title {
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+time {
+    font-size: 0.75rem;
+}
+
+.nav__link {    
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #090909;
+}
+
+/* Site Layout */
+
+.main-container {   
+    display: grid; 
+    grid-template-columns: 1em 1fr 1em;
+    grid-template-areas: 
+        "hero hero hero"
+        ".... list ...."
+        ".... btnc ...."
+        "foot foot foot";
+    gap: 1.5em 0;
+}
+
+.article-list {
+    display: grid;
+    grid-area: list;
+    gap: 2em;
+}
+
+.btn-container {
+    grid-area: btnc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NavBar Layout */
+
+header,
+.logo-container,
+.nav__links {
+    display: flex;
+    align-items: center;
+}
+
+.main-header {
+    grid: header;
+    justify-content: space-between;
+    width: 100%;
+    line-height: 4em;
+}
+
+.logo-container {
+    margin-left: 1em;
+}
+
+.logo-image {
+    width: 3em;
+}
+
+/* Hero Section */
+
+.hero {
+    grid-area: hero;
+    display: grid;
+    align-items:flex-end;
+    background-image: url("/img/articles/my-journey.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 300px;
+}
+
+.hero__content {
+    padding: 1em;
+}
+
+.hero__title,
+.hero__date,
+.hero__body {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Post Layout */
+
+.post-page {
+    display: grid;
+    grid-template-columns: 1em 1fr 1em;
+    grid-template-areas: 
+        ".... .... ...."
+        ".... post ...."
+        ".... list ...."
+        "foot foot foot";
+    gap: 1.5em 0;
+}
+
+.post-container {    
+    grid-area: post;
+}
+
+.post {
+    display: grid;
+    gap: 1em;
+}
+
+.recent-post__title {
+    text-align: center;
+}
+
+/* About Page */
+
+.about-me,
+.about-me__title,
+.about-me__body {
+    display: grid;
+    gap: 1em;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: foot;
+    background-color: #090909;
+    color: #FFFFFF;
+    height: 6.25em;
+    width: 100%;
+}
+
+footer p {
+    font-size: 0.75rem;
+}
+
+/* Components */
+
+img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.avatar {
+    max-width: 200px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.btn {
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Source Sans 3", sans-serif;
+    text-decoration: underline;
+}
+
+/* Media Queries */
+
+@media (min-width: 500px) {
+    .main-container {   
+        grid-template-columns: 2em 1fr 1fr 2em;
+        grid-template-areas: 
+            "hero hero hero hero"
+            ".... list list ...."
+            ".... btnc btnc ...."
+            "foot foot foot foot";
+        gap: 1.5em 0;
+    }
+
+    .article-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+    }
+
+    .hero {
+        min-height: 450px;
+    }    
+
+    .hero__content {
+        padding: 2em;
+    }
+
+    .nav__item {
+        margin-right: 2em;
+    }
+    
+    .logo-container {
+        margin-left: 2em;
+    }
+
+    .about-me {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        gap: 2em;
+    }
+
+    .avatar {
+        grid-column: span 1;
+    }
+
+    .about-me__title {
+        grid-column: span 2;
+    }
+
+    .about-me__body {
+        grid-column: span 3;
+        margin-left: 4em;
+        margin-right: 4em;
+    }
+
+    .recent-post__title {
+        grid-column: span 3;
+    }
+
+    .article-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 870px) {
+    .main-container {   
+        grid-template-columns: 2em repeat(3, 1fr) 2em;
+        grid-template-areas: 
+            "hero hero hero hero hero"
+            ".... list list list ...."            
+            ".... btnc btnc btnc ...."
+            "foot foot foot foot foot";
+        gap: 1.5em 0;
+    }
+}
